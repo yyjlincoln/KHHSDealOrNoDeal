@@ -1,0 +1,12 @@
+H:\DOND\DealOrNoDeal\bin\Debug\DealOrNoDeal.exe.config
+H:\DOND\DealOrNoDeal\bin\Debug\DealOrNoDeal.exe
+H:\DOND\DealOrNoDeal\bin\Debug\DealOrNoDeal.pdb
+H:\DOND\DealOrNoDeal\bin\Debug\DealOrNoDeal.xml
+H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.vbprojAssemblyReference.cache
+H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.Form1.resources
+H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.Resources.resources
+H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.vbproj.GenerateResource.cache
+H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.vbproj.CoreCompileInputs.cache
+H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.exe
+H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.xml
+H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.pdb
