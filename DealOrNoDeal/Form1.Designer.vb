@@ -25,20 +25,23 @@ Partial Class Form1
         Me.SelectionTxt = New System.Windows.Forms.TextBox()
         Me.confirmBtn = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'SelectionTxt
         '
-        Me.SelectionTxt.Location = New System.Drawing.Point(201, 38)
+        Me.SelectionTxt.Location = New System.Drawing.Point(405, 142)
+        Me.SelectionTxt.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.SelectionTxt.Name = "SelectionTxt"
-        Me.SelectionTxt.Size = New System.Drawing.Size(100, 20)
+        Me.SelectionTxt.Size = New System.Drawing.Size(196, 35)
         Me.SelectionTxt.TabIndex = 0
         '
         'confirmBtn
         '
-        Me.confirmBtn.Location = New System.Drawing.Point(320, 36)
+        Me.confirmBtn.Location = New System.Drawing.Point(643, 138)
+        Me.confirmBtn.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.confirmBtn.Name = "confirmBtn"
-        Me.confirmBtn.Size = New System.Drawing.Size(75, 23)
+        Me.confirmBtn.Size = New System.Drawing.Size(150, 42)
         Me.confirmBtn.TabIndex = 1
         Me.confirmBtn.Text = "Select"
         Me.confirmBtn.UseVisualStyleBackColor = True
@@ -47,21 +50,32 @@ Partial Class Form1
         '
         Me.Label1.AllowDrop = True
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(62, 38)
+        Me.Label1.Location = New System.Drawing.Point(124, 70)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(83, 13)
+        Me.Label1.Size = New System.Drawing.Size(202, 24)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Starting Game..."
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(407, 87)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(0, 24)
+        Me.Label2.TabIndex = 3
+        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(439, 405)
+        Me.ClientSize = New System.Drawing.Size(878, 748)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.confirmBtn)
         Me.Controls.Add(Me.SelectionTxt)
+        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -72,4 +86,5 @@ Partial Class Form1
     Friend WithEvents SelectionTxt As TextBox
     Friend WithEvents confirmBtn As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

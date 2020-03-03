@@ -10,3 +10,15 @@ H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.vbproj.CoreCompileInputs.cache
 H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.exe
 H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.xml
 H:\DOND\DealOrNoDeal\obj\Debug\DealOrNoDeal.pdb
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\bin\Debug\DealOrNoDeal.exe.config
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\bin\Debug\DealOrNoDeal.exe
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\bin\Debug\DealOrNoDeal.pdb
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\bin\Debug\DealOrNoDeal.xml
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.vbprojAssemblyReference.cache
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.Form1.resources
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.Resources.resources
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.vbproj.GenerateResource.cache
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.vbproj.CoreCompileInputs.cache
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.exe
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.xml
+C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.pdb
