@@ -5,7 +5,7 @@ Public Class Form1
     Public Cases As New List(Of Double)
     Public Values As New List(Of Double) From {0.5, 1, 2, 5, 10, 20, 50, 100, 150, 200, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 10000, 15000, 20000, 30000, 50000, 75000, 100000, 200000}
     Public Selected As New Double
-    Public nl = Environment.NewLine
+    Public BankTime As New List(Of Integer) From {2, 3, 4, 5, 7, 10, 14, 19} ' 26 in total, choose 1 to keep, choose 6
     Public state = "load"
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -17,17 +17,19 @@ Public Class Form1
         ' = 0: selected
         ' < 0: opened
         ' > 0: not opened
+        Dim textToBeUpdated As String = ""
         For x As Integer = 0 To Cases.Count() - 1
-            Label1.Text = Label1.Text + "Case #" + CType(x + 1, String) + ": "
+            textToBeUpdated = textToBeUpdated + "Case #" + CType(x + 1, String) + ": "
             If Cases(x) = 0 Then
-                Label1.Text = Label1.Text + "Selected"
+                textToBeUpdated = textToBeUpdated + "Selected"
             ElseIf Cases(x) < 0 Then
-                Label1.Text = Label1.Text + "$" + CType(Cases(x) * -1, String)
+                textToBeUpdated = textToBeUpdated + "$" + CType(Cases(x) * -1, String)
             Else
-                Label1.Text = Label1.Text + "Available"
+                textToBeUpdated = textToBeUpdated + "Available"
             End If
-            Label1.Text = Label1.Text + nl
+            textToBeUpdated = textToBeUpdated + Environment.NewLine
         Next
+        Label1.Text = textToBeUpdated
 
     End Sub
 
@@ -43,7 +45,8 @@ Public Class Form1
 
     Public Sub handleSelection(selection As Integer)
         If selection > Cases.Count() Or selection < 1 Then
-            Label2.Text = "Invalid selection."
+            '            Label2.Text = "Invalid selection."
+            MsgBox("Invalid Selection")
         Else
             Selected = Cases(selection - 1)
             Cases(selection - 1) = 0
@@ -58,9 +61,13 @@ Public Class Form1
             Label2.Text = "Invalid selection."
         Else
             If Cases(selection - 1) = 0 Then
-                Label2.Text = "You can not choose the one you've already selected."
+                '                Label2.Text = "You can not choose the one you've already selected."
+                MsgBox("You can not choose the one you've already selected.")
+                Return
             ElseIf Cases(selection - 1) < 0 Then
-                Label2.Text = "This one is already open."
+                '                Label2.Text = "This one is already open."
+                MsgBox("This one is already open!")
+                Return
             End If
             Cases(selection - 1) = Cases(selection - 1) * -1
         End If
@@ -78,8 +85,27 @@ Public Class Form1
             Case "selection"
                 Label2.Text = "Please select one to open."
                 state = "open"
-                Return
-
+            Case "open"
+                Dim no = 0
+                For x As Integer = 0 To Cases.Count() - 1
+                    If Cases(x) <= 0 Then
+                        no = no + 1
+                    End If
+                Next
+                log(BankTime.Contains(no))
+                log(Cases.Count() - no)
+                If BankTime.Contains(Cases.Count() - no) Then
+                    bank()
+                End If
+                If Cases.Count() - no = 1 Then
+                    state = "final"
+                End If
+            Case "bankfinish"
+                state = "open"
+            Case "finish"
+                MsgBox("Game finished.")
+            Case "final"
+                state = "finish"
         End Select
 
 
@@ -89,20 +115,58 @@ Public Class Form1
         Console.WriteLine(message)
     End Sub
     Private Sub ConfirmBtn_Click(sender As Object, e As EventArgs) Handles confirmBtn.Click
+        handleSubmission()
+    End Sub
+    Public Sub handleFinal(choice As Integer)
+        MsgBox("Case #" + CType(choice, String) + " has $" + CType(Cases(choice), String))
+
+    End Sub
+    Public Sub handleSubmission()
         Try
             Select Case state
                 Case "selection"
                     handleSelection(SelectionTxt.Text)
                 Case "open"
                     handleOpen(SelectionTxt.Text)
+                Case "finish"
+                    MsgBox("Game finished")
+                Case "final"
+                    handleFinal(SelectionTxt.Text)
                 Case Else
                     log("Exception: unmapped state." + state)
+                    MsgBox("Exception: unmapped state. Details in the log.")
             End Select
-            SelectionTxt.Text = ""
+            SelectionTxt.Clear()
         Catch ex As Exception
-            SelectionTxt.Text = ""
+            SelectionTxt.Clear()
             log(ex)
         End Try
+    End Sub
+    Function calcOffer() As Double
+        Dim numberOfCases As Integer
+        Dim valueOfCases As Double
+        For x As Integer = 0 To Cases.Count() - 1
+            If (Cases(x) <= 0) Then
+                numberOfCases = numberOfCases + 1
+                valueOfCases = valueOfCases + (Cases(x) * -1)
+            End If
+        Next
+        Return 0.9 * (valueOfCases / numberOfCases)
+    End Function
+    Public Sub bank()
+        Dim offervalue = calcOffer()
+        If MsgBox("Bank has given you an offer of $" + CType(offervalue, String) + "! Do you want to accept it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            MsgBox("You've got $" + CType(offervalue, String))
+            state = "finish"
+        Else
+            state = "bankfinish"
+        End If
+        updateState()
+    End Sub
 
+    Private Sub SelectionTxt_TextChanged(sender As Object, e As KeyEventArgs) Handles SelectionTxt.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            handleSubmission()
+        End If
     End Sub
 End Class

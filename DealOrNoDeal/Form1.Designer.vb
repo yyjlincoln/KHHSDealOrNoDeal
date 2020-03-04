@@ -30,16 +30,16 @@ Partial Class Form1
         '
         'SelectionTxt
         '
-        Me.SelectionTxt.Location = New System.Drawing.Point(405, 142)
-        Me.SelectionTxt.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.SelectionTxt.Location = New System.Drawing.Point(411, 495)
+        Me.SelectionTxt.Margin = New System.Windows.Forms.Padding(6)
         Me.SelectionTxt.Name = "SelectionTxt"
         Me.SelectionTxt.Size = New System.Drawing.Size(196, 35)
         Me.SelectionTxt.TabIndex = 0
         '
         'confirmBtn
         '
-        Me.confirmBtn.Location = New System.Drawing.Point(643, 138)
-        Me.confirmBtn.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.confirmBtn.Location = New System.Drawing.Point(649, 491)
+        Me.confirmBtn.Margin = New System.Windows.Forms.Padding(6)
         Me.confirmBtn.Name = "confirmBtn"
         Me.confirmBtn.Size = New System.Drawing.Size(150, 42)
         Me.confirmBtn.TabIndex = 1
@@ -61,7 +61,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(407, 87)
+        Me.Label2.Location = New System.Drawing.Point(422, 444)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 24)
         Me.Label2.TabIndex = 3
@@ -75,7 +75,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.confirmBtn)
         Me.Controls.Add(Me.SelectionTxt)
-        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
