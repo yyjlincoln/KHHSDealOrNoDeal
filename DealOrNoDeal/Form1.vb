@@ -46,7 +46,7 @@ Public Class Form1
     Public Sub handleSelection(selection As Integer)
         If selection > Cases.Count() Or selection < 1 Then
             '            Label2.Text = "Invalid selection."
-            MsgBox("Invalid Selection")
+            'MsgBox("Invalid Selection")
         Else
             Selected = Cases(selection - 1)
             Cases(selection - 1) = 0
@@ -58,7 +58,8 @@ Public Class Form1
 
     Public Sub handleOpen(selection As Integer)
         If selection > Cases.Count() Or selection < 1 Then
-            Label2.Text = "Invalid selection."
+            'Label2.Text = "Invalid selection."
+            'MsgBox("Invalid Selection")
         Else
             If Cases(selection - 1) = 0 Then
                 '                Label2.Text = "You can not choose the one you've already selected."
@@ -98,6 +99,7 @@ Public Class Form1
                     bank()
                 End If
                 If Cases.Count() - no = 1 Then
+                    Label2.Text = "Choose the last one that you want to keep"
                     state = "final"
                 End If
             Case "bankfinish"
@@ -118,7 +120,19 @@ Public Class Form1
         handleSubmission()
     End Sub
     Public Sub handleFinal(choice As Integer)
-        MsgBox("Case #" + CType(choice, String) + " has $" + CType(Cases(choice), String))
+        If Cases(choice - 1) < 0 Then
+            MsgBox("That case is already open, and you ca not keep it.")
+        ElseIf Cases(choice - 1) = 0 Then
+            MsgBox("Case #" + CType(choice, String) + " has $" + CType(Selected, String) + ", and that's what you get.")
+            Cases(choice - 1) = Selected * -1
+            state = "finish"
+        Else
+            MsgBox("Case #" + CType(choice, String) + " has $" + CType(Cases(choice - 1), String) + ", and that's what you get.")
+            Cases(choice - 1) = Cases(choice - 1) * -1
+            state = "finish"
+        End If
+        updateState()
+
 
     End Sub
     Public Sub handleSubmission()
