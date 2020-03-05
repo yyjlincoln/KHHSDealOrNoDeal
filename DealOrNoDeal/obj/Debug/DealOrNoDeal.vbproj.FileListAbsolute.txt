@@ -22,3 +22,15 @@ C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.vb
 C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.exe
 C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.xml
 C:\Users\Lincoln\Desktop\KHHSDealOrNoDeal\DealOrNoDeal\obj\Debug\DealOrNoDeal.pdb
+H:\DOND_Git\DealOrNoDeal\bin\Debug\DealOrNoDeal.exe.config
+H:\DOND_Git\DealOrNoDeal\bin\Debug\DealOrNoDeal.exe
+H:\DOND_Git\DealOrNoDeal\bin\Debug\DealOrNoDeal.pdb
+H:\DOND_Git\DealOrNoDeal\bin\Debug\DealOrNoDeal.xml
+H:\DOND_Git\DealOrNoDeal\obj\Debug\DealOrNoDeal.vbprojAssemblyReference.cache
+H:\DOND_Git\DealOrNoDeal\obj\Debug\DealOrNoDeal.Form1.resources
+H:\DOND_Git\DealOrNoDeal\obj\Debug\DealOrNoDeal.Resources.resources
+H:\DOND_Git\DealOrNoDeal\obj\Debug\DealOrNoDeal.vbproj.GenerateResource.cache
+H:\DOND_Git\DealOrNoDeal\obj\Debug\DealOrNoDeal.vbproj.CoreCompileInputs.cache
+H:\DOND_Git\DealOrNoDeal\obj\Debug\DealOrNoDeal.exe
+H:\DOND_Git\DealOrNoDeal\obj\Debug\DealOrNoDeal.xml
+H:\DOND_Git\DealOrNoDeal\obj\Debug\DealOrNoDeal.pdb

@@ -63,8 +63,9 @@ Public Class Form1
         Else
             If Cases(selection - 1) = 0 Then
                 '                Label2.Text = "You can not choose the one you've already selected."
-                MsgBox("You can not choose the one you've already selected.")
-                Return
+                '                MsgBox("You can not choose the one you've already selected.")
+                MsgBox("You MUST NOT open your briefcase. You are eliminated.")
+                state = "finish"
             ElseIf Cases(selection - 1) < 0 Then
                 '                Label2.Text = "This one is already open."
                 MsgBox("This one is already open!")
