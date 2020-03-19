@@ -30,7 +30,7 @@ Partial Class Form1
         '
         'SelectionTxt
         '
-        Me.SelectionTxt.Location = New System.Drawing.Point(411, 495)
+        Me.SelectionTxt.Location = New System.Drawing.Point(1424, 468)
         Me.SelectionTxt.Margin = New System.Windows.Forms.Padding(6)
         Me.SelectionTxt.Name = "SelectionTxt"
         Me.SelectionTxt.Size = New System.Drawing.Size(196, 35)
@@ -38,7 +38,7 @@ Partial Class Form1
         '
         'confirmBtn
         '
-        Me.confirmBtn.Location = New System.Drawing.Point(649, 491)
+        Me.confirmBtn.Location = New System.Drawing.Point(1397, 342)
         Me.confirmBtn.Margin = New System.Windows.Forms.Padding(6)
         Me.confirmBtn.Name = "confirmBtn"
         Me.confirmBtn.Size = New System.Drawing.Size(150, 42)
@@ -50,7 +50,7 @@ Partial Class Form1
         '
         Me.Label1.AllowDrop = True
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(124, 70)
+        Me.Label1.Location = New System.Drawing.Point(1362, 184)
         Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(202, 24)
@@ -61,7 +61,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(422, 444)
+        Me.Label2.Location = New System.Drawing.Point(317, 94)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 24)
         Me.Label2.TabIndex = 3
@@ -70,7 +70,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1019, 748)
+        Me.ClientSize = New System.Drawing.Size(1850, 1157)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.confirmBtn)
