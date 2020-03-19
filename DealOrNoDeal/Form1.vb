@@ -28,7 +28,9 @@ Public Class Form1
     Const reservedWidthRight = 70
 
 
-
+    Private Sub onResize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        update_form()
+    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         init()
         update_form()
