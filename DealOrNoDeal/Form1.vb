@@ -48,8 +48,12 @@ Public Class Form1
             textToBeUpdated = textToBeUpdated + "Case #" + CType(x + 1, String) + ": "
             If Cases(x) = 0 Then
                 textToBeUpdated = textToBeUpdated + "Selected"
+                Buttons(x).Text = "Selected"
             ElseIf Cases(x) < 0 Then
                 textToBeUpdated = textToBeUpdated + "$" + CType(Cases(x) * -1, String)
+                Buttons(x).Text = "$" & -1 * Cases(x)
+                Labels(x).Hide()
+                Buttons(x).Enabled = False
             Else
                 textToBeUpdated = textToBeUpdated + "Available"
             End If
@@ -310,7 +314,6 @@ Public Class Form1
     End Sub
 
     Public Function handleClick(num)
-        Buttons(num).Enabled = False
         handleSubmission(num + 1)
         Return 0
     End Function
