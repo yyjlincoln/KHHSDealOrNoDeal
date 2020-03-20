@@ -35,6 +35,7 @@ Partial Class Form1
         Me.SelectionTxt.Name = "SelectionTxt"
         Me.SelectionTxt.Size = New System.Drawing.Size(196, 35)
         Me.SelectionTxt.TabIndex = 0
+        Me.SelectionTxt.Visible = False
         '
         'confirmBtn
         '
@@ -45,6 +46,7 @@ Partial Class Form1
         Me.confirmBtn.TabIndex = 1
         Me.confirmBtn.Text = "Select"
         Me.confirmBtn.UseVisualStyleBackColor = True
+        Me.confirmBtn.Visible = False
         '
         'Label1
         '
@@ -57,6 +59,7 @@ Partial Class Form1
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Starting Game..."
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Label1.Visible = False
         '
         'Label2
         '

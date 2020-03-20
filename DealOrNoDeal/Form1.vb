@@ -10,7 +10,7 @@ Public Class Form1
     Public Selected As New Double
 
     Public LabelsInit As New List(Of Label)
-    Public ValuesInit As New List(Of Double) From {0.5, 1, 2, 5, 10, 20, 50, 100, 150, 200, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 10000, 15000, 20000, 30000, 50000, 75000, 100000, 200000}
+    Public ValuesInit As New List(Of Double) From {0.5, 0.6, 0.7, 0.8, 0.9, 1, 2, 5, 10, 20, 50, 100, 150, 200, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 10000, 15000, 20000, 30000, 50000, 75000, 100000, 200000}
     Public BankTime As New List(Of Integer) From {2, 3, 4, 5, 7, 10, 14, 19} ' 26 in total, choose 1 to keep, choose 6
     Public state = "load"
 
@@ -298,7 +298,7 @@ Public Class Form1
         For x As Integer = 0 To Cases.Count() - 1
             If (Cases(x) > 0) Then
                 numberOfCases = numberOfCases + 1
-                valueOfCases = valueOfCases + (Cases(x) * -1)
+                valueOfCases = valueOfCases + Cases(x)
             End If
             valueOfCases = valueOfCases + Selected ' Add the selected case as well
             numberOfCases = numberOfCases + 1
