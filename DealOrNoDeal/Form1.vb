@@ -294,12 +294,16 @@ Public Class Form1
     Function calcOffer() As Double
         Dim numberOfCases As Integer
         Dim valueOfCases As Double
+
         For x As Integer = 0 To Cases.Count() - 1
-            If (Cases(x) <= 0) Then
+            If (Cases(x) > 0) Then
                 numberOfCases = numberOfCases + 1
                 valueOfCases = valueOfCases + (Cases(x) * -1)
             End If
+            valueOfCases = valueOfCases + Selected ' Add the selected case as well
+            numberOfCases = numberOfCases + 1
         Next
+        Console.WriteLine(valueOfCases, numberOfCases)
         Return 0.9 * (valueOfCases / numberOfCases)
     End Function
     Public Sub bank()
