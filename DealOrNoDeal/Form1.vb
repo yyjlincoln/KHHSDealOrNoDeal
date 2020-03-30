@@ -5,13 +5,13 @@ Public Class Form1
     Public Cases As New List(Of Double)
     Public Labels As New List(Of Label)
     Public Buttons As New List(Of Button)
-    Public LabelAccending As New List(Of Label)
+    Public LabelAscending As New List(Of Label)
 
     Public Selected As New Double
 
     Public LabelsInit As New List(Of Label)
-    Public ValuesInit As New List(Of Double) From {0.5, 0.6, 0.7, 0.8, 0.9, 1, 2, 5, 10, 20, 50, 100, 150, 200, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 10000, 15000, 20000, 30000, 50000, 75000, 100000, 200000}
-    Public BankTime As New List(Of Integer) From {2, 3, 4, 5, 7, 10, 14, 19} ' 26 in total, choose 1 to keep, choose 6
+    Public ValuesInit As New List(Of Double) From {0.5, 1, 2, 5, 10, 20, 50, 100, 150, 200, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 10000, 15000, 20000, 30000, 50000, 75000, 100000, 200000}
+    Public BankTime As New List(Of Integer) From {1, 2, 3, 4, 5, 7, 10, 14, 19} ' 26 in total, choose 1 to keep, choose 6
     Public state = "load"
 
     Const button_width = 70
@@ -35,31 +35,28 @@ Public Class Form1
         init()
         update_form()
         updateState()
-
-
     End Sub
-    Public Sub updateLabel()
-        Label1.Text = ""
+    Public Sub updateButtonsAndLabelStatus()
         ' = 0: selected
         ' < 0: opened
         ' > 0: not opened
-        Dim textToBeUpdated As String = ""
+        '     Dim textToBeUpdated As String = ""
         For x As Integer = 0 To Cases.Count() - 1
-            textToBeUpdated = textToBeUpdated + "Case #" + CType(x + 1, String) + ": "
+            '            textToBeUpdated = textToBeUpdated + "Case #" + CType(x + 1, String) + ": "
             If Cases(x) = 0 Then
-                textToBeUpdated = textToBeUpdated + "Selected"
+                '               textToBeUpdated = textToBeUpdated + "Selected"
                 Buttons(x).Text = "Selected"
             ElseIf Cases(x) < 0 Then
-                textToBeUpdated = textToBeUpdated + "$" + CType(Cases(x) * -1, String)
+                '              textToBeUpdated = textToBeUpdated + "$" + CType(Cases(x) * -1, String)
                 Buttons(x).Text = "$" & -1 * Cases(x)
                 Labels(x).Hide()
                 Buttons(x).Enabled = False
             Else
-                textToBeUpdated = textToBeUpdated + "Available"
+                '              textToBeUpdated = textToBeUpdated + "Available"
             End If
-            textToBeUpdated = textToBeUpdated + Environment.NewLine
+            '            textToBeUpdated = textToBeUpdated + Environment.NewLine
         Next
-        Label1.Text = textToBeUpdated
+
 
     End Sub
 
@@ -108,12 +105,12 @@ Public Class Form1
         top_start = 0
 
 
-        For x As Integer = 0 To LabelAccending.Count() - 1
+        For x As Integer = 0 To LabelAscending.Count() - 1
 
             If leftAccumulation < adjustedWidth - label_width - label_left Or leftAccumulation = label_left + delta_left Then
 
                 If heightAccumulation < adjustedHeight - 2 * label_height - label_up Then
-                    Dim lbl = LabelAccending(x)
+                    Dim lbl = LabelAscending(x)
                     lbl.Height = label_height
                     lbl.Width = label_width
                     lbl.Top = heightAccumulation + top_start
@@ -165,7 +162,7 @@ Public Class Form1
             Dim lbl As Label = New Label()
             lbl.Text = "$" & ValuesInit(x)
             LabelsInit.Add(lbl)
-            LabelAccending.Add(lbl)
+            LabelAscending.Add(lbl)
             Me.Controls.Add(lbl)
         Next
 
@@ -180,7 +177,7 @@ Public Class Form1
             LabelsInit.RemoveAt(i)
         Next
 
-        updateLabel()
+        updateButtonsAndLabelStatus()
     End Sub
 
     Public Sub handleSelection(selection As Integer)
@@ -190,7 +187,7 @@ Public Class Form1
         Else
             Selected = Cases(selection - 1)
             Cases(selection - 1) = 0
-            Label2.Text = "You've selected #" + CType(selection, String)
+            InstructionLabel.Text = "You've selected #" + CType(selection, String)
             updateState()
         End If
 
@@ -202,7 +199,9 @@ Public Class Form1
         Else
             If Cases(selection - 1) = 0 Then
                 MsgBox("You MUST NOT open your briefcase. You are eliminated.")
+                InstructionLabel.Text = "You are eliminated."
                 state = "finish"
+                showEverything()
             ElseIf Cases(selection - 1) < 0 Then
                 '                Label2.Text = "This one is already open."
                 MsgBox("This one is already open!")
@@ -214,15 +213,15 @@ Public Class Form1
     End Sub
 
     Public Sub updateState()
-        updateLabel()
+        updateButtonsAndLabelStatus()
 
         Select Case state
             Case "load" 'Select the one that the player wanna keep
-                Label2.Text = "Please chose one of these, and press confirm"
+                InstructionLabel.Text = "Please chose one of these, and press confirm"
                 state = "selection"
                 Return
             Case "selection"
-                Label2.Text = "Please select one to open."
+                InstructionLabel.Text = "Please select one to open."
                 state = "open"
             Case "open"
                 Dim no = 0
@@ -237,7 +236,7 @@ Public Class Form1
                     bank()
                 End If
                 If Cases.Count() - no = 1 Then
-                    Label2.Text = "Choose the last one that you want to keep"
+                    InstructionLabel.Text = "Choose the last one that you want to keep"
                     state = "final"
                 End If
             Case "bankfinish"
@@ -245,10 +244,23 @@ Public Class Form1
             Case "finish"
                 MsgBox("Game finished.")
             Case "final"
+                InstructionLabel.Text = "Game finished."
                 state = "finish"
+                showEverything()
+                updateButtonsAndLabelStatus()
         End Select
 
 
+    End Sub
+    Public Sub showEverything()
+        For x As Integer = 0 To Cases.Count() - 1
+            'Manually open everything
+            If Cases(x) = 0 Then
+                Cases(x) = Selected * -1
+            ElseIf Cases(x) > 0 Then
+                Cases(x) = Cases(x) * -1
+            End If
+        Next
     End Sub
 
     Private Sub log(message)
@@ -260,11 +272,9 @@ Public Class Form1
         ElseIf Cases(choice - 1) = 0 Then
             MsgBox("Case #" + CType(choice, String) + " has $" + CType(Selected, String) + ", and that's what you get.")
             Cases(choice - 1) = Selected * -1
-            state = "finish"
         Else
             MsgBox("Case #" + CType(choice, String) + " has $" + CType(Cases(choice - 1), String) + ", and that's what you get.")
             Cases(choice - 1) = Cases(choice - 1) * -1
-            state = "finish"
         End If
         updateState()
 
@@ -310,7 +320,9 @@ Public Class Form1
         Dim offervalue = calcOffer()
         If MsgBox("Bank has given you an offer of $" + CType(offervalue, String) + "! Do you want to accept it?", MsgBoxStyle.YesNo, "Bank Offer") = MsgBoxResult.Yes Then
             MsgBox("You've got $" + CType(offervalue, String))
+            InstructionLabel.Text = "You accepted the bank offer and got $" & offervalue
             state = "finish"
+            showEverything()
         Else
             state = "bankfinish"
         End If
@@ -321,4 +333,5 @@ Public Class Form1
         handleSubmission(num + 1)
         Return 0
     End Function
+
 End Class
