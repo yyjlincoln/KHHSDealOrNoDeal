@@ -1,1 +1,33 @@
-INI
+BEGIN
+	BEGIN FUNCTION OpenCase(Button SpecificButton, Label SpecificLabel, Int CaseNumber)
+		‘ Lock button
+		SpecificButton.Enabled = False
+		‘ Hide Label
+		SpecificLabel.Hide()
+		‘ Reduce the TotalValue
+		‘ Since index in cases starts from 0, we have to minus one.
+		TotalValue = TotalValue – Cases(CaseNumber - 1)
+		‘ increase the opened case
+		RemainingCase = RemainingCase - 1
+		IF OpenedCase is in BankTime Then
+			BankOffer()
+		ELSE
+			‘ Do nothing
+		ENDIF
+	END FUNCTION
+	BEGIN FUNCTION Button1_Click() Handles Button1.Click
+		OpenCase(Button1, Label1, 1)
+	END FUNCTION
+	BEGIN FUNCTION Button2_Click() Handles Button2.Click
+		OpenCase(Button2, Label2, 2)
+	END FUNCTION
+……
+	BEGIN FUNCTION ButtonX_Click() Handles ButtonX.Click
+		OpenCase(ButtonX, LabelX, X)
+	END FUNCTION
+	BEGIN FUNCTION BankOffer()
+		BankValue = TotalValue / RemainingCase * 85%
+		Selection = Msgbox(“Bank offer is $” & BankValue, vbYesNo)
+		
+	END FUNCTION
+END
